@@ -7,7 +7,7 @@ import WeatherIcon from "./WeatherIcon";
 
 export default class Forecast extends Component {
   state = {
-    city: this.props.city
+    city: this.props.city,
   };
   componentWillMount() {
     this.refresh();
@@ -33,7 +33,7 @@ export default class Forecast extends Component {
           precipitation: Math.round(forecast[index].main.humidity) + "%",
           temperature: Math.round(forecast[index].main.temp),
           day: new DateUtil(new Date(forecast[index].dt * 1000)).day(true),
-          wind: Math.round(forecast[index].wind.speed) + "km/h"
+          wind: Math.round(forecast[index].wind.speed) + "km/h",
         };
       });
       this.setState({ forecast: dailyForecast });
